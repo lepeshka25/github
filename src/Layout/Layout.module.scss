@@ -5,14 +5,17 @@
 .wrapper {
   display: grid;
   min-height: 100vh;
-  grid-template-columns: auto minmax(260px , 1fr) 3.3fr auto;
-  grid-template-areas:
-    ". sidebar body .";
   
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
     grid-template-areas:
     "body";
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: auto minmax(260px , 1fr) 3.3fr auto;
+    grid-template-areas:
+    ". sidebar body .";
   }
 
   @media (min-width: 1536px) {
@@ -21,14 +24,17 @@
   }
 
   .sidebar {
+    width: 100%;
     grid-area: sidebar;
-    @media (max-width: 768px) {
-      display: none;
+    @media (min-width: 768px) {
+      display: block;
     }
   }
 
   .body {
     grid-area: body;
+    overflow-y: scroll;
+    height: 100vh;
     
     @media (max-width: 768px) {
       padding: 0 16px;

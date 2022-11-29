@@ -5,7 +5,8 @@ import cs from './Main.module.scss'
 const Main = () => {
 	return (
 		<div className={cs.main}>
-			main
+			<div className={cs.main_container}>
+			</div>
 		</div>
 	);
 };

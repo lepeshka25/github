@@ -9,6 +9,7 @@ import {useNavigate} from "react-router-dom";
 import {IoIosNotificationsOutline} from "react-icons/io";
 import cs from './Header.module.scss'
 import {useMediaQuery} from "react-responsive";
+import Input from "../../components/Input/Input";
 
 const list = [
 	{
@@ -123,7 +124,7 @@ const Header = ({className ,...props}) => {
 							</div>
 
 							<div className={cs.container}>
-								<input placeholder={'Search or jump to…'} type="text"/>
+								<Input cs={cs} placeholder={'Search or jump to…'}/>
 								<ul className={cs.list}>
 									{list.map(({title , id}) => <li key={id}>{title}</li>)}
 								</ul>
