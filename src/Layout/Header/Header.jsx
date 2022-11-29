@@ -117,7 +117,25 @@ const Header = ({className ,...props}) => {
 			{
 				isLaptop && (
 					<div className={cs.laptop}>
+						<div className={cs.container_laptop}>
+							<div className={cs.logo}>
+								<img src={logo} alt=""/>
+							</div>
 
+							<div className={cs.container}>
+								<input placeholder={'Search or jump to…'} type="text"/>
+								<ul className={cs.list}>
+									{list.map(({title , id}) => <li key={id}>{title}</li>)}
+								</ul>
+							</div>
+						</div>
+
+						<div className={cs.user_container}>
+							<img className={cs.notification} src={notification} alt=""/>
+							<img className={cs.plus} src={plus} alt=""/>
+							<img src="https://avatars.githubusercontent.com/u/104206949?s=40&amp;v=4" alt="@lepeshka25" size="20"
+									 height="20" width="20" data-view-component="true" className={cs.avatar}/>
+						</div>
 					</div>
 				)
 			}

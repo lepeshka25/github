@@ -14,7 +14,12 @@
     grid-template-areas:
     "body";
   }
-  
+
+  @media (min-width: 1536px) {
+    width: 1536px;
+    margin: 0 auto;
+  }
+
   .sidebar {
     grid-area: sidebar;
     @media (max-width: 768px) {
