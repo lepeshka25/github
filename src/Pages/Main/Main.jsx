@@ -1,9 +1,9 @@
 import React from 'react';
-import star from '../../assets/star.svg';
 import {WithLayout} from "../../Layout/Layout";
 import Li from "../../components/Li";
-import cs from './Main.module.scss';
 import LiList2 from "../../components/LiList2";
+import Card from "../../components/Card";
+import cs from './Main.module.scss';
 
 const listLi = [
 	{
@@ -52,11 +52,40 @@ const list2Li = [
 	},
 ]
 
+const cardList = {
+	id: 1,
+	login: 'AlariCode',
+	state: 'created a repository',
+	nameRepository: 'PurpleSchool/knowledge-base',
+	day: '6 days ago',
+	date: 'Updated Nov 25',
+	url: 'https://avatars.githubusercontent.com/u/2528600?s=64&v=4',
+}
+
 const Main = () => {
+
 	return (
 		<div className={cs.main}>
 			<div className={cs.main_container}>
-
+				{
+					Array(10).fill(cardList).map(({login , state, nameRepository, day, date , url}, i) => (
+						<Card
+							key={i}
+							cs={cs}
+							login={login}
+							state={state}
+							nameRepository={nameRepository}
+							day={day}
+							date={date}
+							url={url}
+						/>
+					))
+				}
+				{/*{*/}
+				{/*	Array(10).map((item , index) => (*/}
+				{/*		<Card key={index} cs={cs} date={cardList} like={'dsf'}/>*/}
+				{/*	))*/}
+				{/*}*/}
 			</div>
 			<div className={cs.repository_changes}>
 				<h4>Latest changes</h4>

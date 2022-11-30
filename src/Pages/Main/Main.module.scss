@@ -1,7 +1,7 @@
 .main {
-  height: 100vh;
+  min-height: 100vh;
   display: grid;
-  
+
   @media (max-width: 1012px) {
     grid-template-columns: 1fr;
     grid-template-areas: "main";
@@ -14,8 +14,117 @@
 
   .main_container {
     grid-area: main;
-    padding: 0 24px;
-    margin-top: 32px;
+
+    @media (min-width: 768px) {
+      padding: 0 24px;
+      margin-top: 32px;
+    }
+
+    .card {
+      width: 100%;
+      padding: 16px 0;
+      display: flex;
+      align-items: flex-start;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+
+      img {
+        border-radius: 100%;
+        margin-right: 10px;
+      }
+
+      .card_body {
+        width: 100%;
+
+        .info {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          font-size: 14px;
+
+          p {
+            color: white;
+            font-weight: 600;
+            font-family: inherit;
+          }
+
+          pre {
+            font-family: inherit;
+          }
+
+          span {
+            padding-left: 5px;
+            color: #8b949e;
+            font-size: 12px;
+          }
+        }
+
+        .container {
+          border: 1px solid rgba(201, 209, 217, 0.2);
+          border-radius: 5px;
+          background: #0d1117;
+          padding: 16px;
+          margin-top: 8px;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-areas: 'h2 button' 'par par';
+
+          @media (max-width: 400px) {
+            gap: 10px 0;
+            grid-template-areas: 'h2 h2' 'par button';
+          }
+
+          h2 {
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+            grid-area: h2;
+          }
+
+          .dropDown {
+            grid-area: button;
+            width: 100px;
+            height: 32px;
+            justify-self: flex-end;
+            display: flex;
+            align-items: center;
+            background: #21262d;
+            justify-content: space-around;
+            padding: 3px 5px;
+            border-radius: 5px;
+
+            span {
+              display: flex;
+              align-items: center;
+              padding-right: 5px;
+
+              img {
+                width: 14px;
+                height: 14px;
+              }
+
+              pre {
+                font-family: inherit;
+                font-size: 12px;
+              }
+            }
+
+            .icon {
+
+            }
+
+          }
+
+          .subTitle {
+            color: #8b949e;
+            font-size: 12px;
+            grid-area: par;
+          }
+
+        }
+      }
+
+    }
+
   }
 
   .repository_changes {
@@ -44,7 +153,7 @@
         padding-left: 10px;
         border-left: 1px solid #30363d;
 
-        &:not(:last-child){
+        &:not(:last-child) {
           padding-bottom: 10px;
         }
 
@@ -64,6 +173,7 @@
         p:nth-child(3) {
           font-size: 14px !important;
           color: #c9d1d9;
+
           &:hover {
             color: #58a6ff;
           }
@@ -81,11 +191,13 @@
         padding-top: 8px;
         padding-bottom: 8px;
         border-bottom: 1px solid #21262d;
+
         div {
 
           .title {
             font-size: 12px;
             color: #ffffff;
+
             &:hover {
               color: #58a6ff;
             }
@@ -103,6 +215,7 @@
 
             p:nth-child(1) {
               padding-right: 10px;
+
               .span {
                 width: 14px;
                 height: 14px;
@@ -122,6 +235,7 @@
             p {
               display: flex;
               align-items: center;
+
               img {
                 width: 14px;
                 height: 14px;
