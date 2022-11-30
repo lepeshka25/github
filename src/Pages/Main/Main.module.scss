@@ -1,5 +1,136 @@
 .main {
+  height: 100vh;
+  display: grid;
+  
+  @media (max-width: 1012px) {
+    grid-template-columns: 1fr;
+    grid-template-areas: "main";
+  }
+
+  @media (min-width: 1012px) {
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: "main changes";
+  }
+
   .main_container {
+    grid-area: main;
+    padding: 0 24px;
+    margin-top: 32px;
+  }
+
+  .repository_changes {
+    grid-area: changes;
+    padding: 0 24px;
+    margin-top: 32px;
+
+    @media (max-width: 1012px) {
+      display: none;
+    }
+
+    @media (min-width: 1012px) {
+      display: block;
+    }
+
+    h4:nth-child(1) {
+      color: #C1D1D9;
+      margin-bottom: 16px;
+    }
+
+    .list {
+      margin-bottom: 24px;
+
+      li {
+        position: relative;
+        padding-left: 10px;
+        border-left: 1px solid #30363d;
+
+        &:not(:last-child){
+          padding-bottom: 10px;
+        }
+
+        img {
+          width: 8px;
+          height: 8px;
+          position: absolute;
+          top: 0;
+          left: -5px;
+        }
+
+        p:nth-child(2) {
+          font-size: 12px !important;
+          color: #8b949e;
+        }
+
+        p:nth-child(3) {
+          font-size: 14px !important;
+          color: #c9d1d9;
+          &:hover {
+            color: #58a6ff;
+          }
+        }
+      }
+    }
+
+    h4:nth-child(3) {
+      color: #C1D1D9;
+      margin-bottom: 12px;
+    }
+
+    .list2 {
+      li {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #21262d;
+        div {
+
+          .title {
+            font-size: 12px;
+            color: #ffffff;
+            &:hover {
+              color: #58a6ff;
+            }
+          }
+
+          .lorem {
+            color: #8b949e;
+            font-size: 12px;
+            margin-bottom: 8px;
+          }
+
+          .line {
+            display: flex;
+            align-items: center;
+
+            p:nth-child(1) {
+              padding-right: 10px;
+              .span {
+                width: 14px;
+                height: 14px;
+                border-radius: 100%;
+
+                &.typscript {
+                  background: #3178c6;
+                }
+
+                &.javascript {
+                  background: yellow;
+                }
+
+              }
+            }
+
+            p {
+              display: flex;
+              align-items: center;
+              img {
+                width: 14px;
+                height: 14px;
+              }
+            }
+          }
+        }
+      }
+    }
 
   }
 }

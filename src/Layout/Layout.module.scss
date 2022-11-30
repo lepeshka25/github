@@ -7,12 +7,15 @@
   min-height: 100vh;
   
   @media (max-width: 768px) {
+    padding: 0 16px;
     grid-template-columns: 1fr;
     grid-template-areas:
+    'sidebar'
     "body";
   }
 
   @media (min-width: 768px) {
+    padding: 0;
     grid-template-columns: auto minmax(260px , 1fr) 3.3fr auto;
     grid-template-areas:
     ". sidebar body .";
@@ -24,23 +27,20 @@
   }
 
   .sidebar {
-    width: 100%;
+    //width: 100%;
     grid-area: sidebar;
-    @media (min-width: 768px) {
-      display: block;
-    }
   }
 
   .body {
     grid-area: body;
     overflow-y: scroll;
-    height: 100vh;
-    
+    //height: 100vh;
+
     @media (max-width: 768px) {
-      padding: 0 16px;
+      padding: 0;
     }
 
-    @media (max-width: 1012px) {
+    @media (min-width: 768px) {
       padding: 0 24px;
     }
 

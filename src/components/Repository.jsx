@@ -1,14 +1,20 @@
 import React from 'react';
 import axios from "axios";
 
-const Repository = ({cs}) => {
+const Repository = ({cs, total}) => {
 	const [data , setData] = React.useState([])
 	const value = React.useDeferredValue(data)
 
 	React.useEffect(() => {
 		axios.get('https://api.github.com/users/lepeshka25/repos')
-			.then(res => setData(res.data))
-	}, [])
+			.then(res => {
+				if(total){
+					setData(res.data)
+				}else {
+					setData(res.data.slice(0, 7))
+				}
+			})
+	}, [total])
 
 	return (
 		<div className={cs.container_repository}>
