@@ -6,7 +6,6 @@ import notification from './notification.svg';
 import logo from '../../assets/logo.svg'
 import cn from 'classnames'
 import {useNavigate} from "react-router-dom";
-import {IoIosNotificationsOutline} from "react-icons/io";
 import cs from './Header.module.scss'
 import {useMediaQuery} from "react-responsive";
 import Input from "../../components/Input/Input";
@@ -145,32 +144,3 @@ const Header = ({className ,...props}) => {
 };
 
 export default Header;
-
-/*
-* <img onClick={() => Navigate('/')} className={cs.logo} src={logo} alt=""/>
-			<div
-				className={cn(cs.list_container , {
-					[cs.active]: state === true
-				})}
-			>
-				<input
-					onFocus={() => setState(true)}
-					onBlur={() => setState(false)}
-					className={cs.searchInput}
-					type="text"
-					placeholder={'Search or jump to…'}
-				/>
-				<ul className={cs.list}>
-					{
-						list.map(({title, id}) => <li key={id}>{title}</li>)
-					}
-				</ul>
-			</div>
-
-			<div className={cs.user_container}>
-				<img className={cs.notification} src={notification} alt=""/>
-				<img className={cs.plus} src={plus} alt=""/>
-				<img src="https://avatars.githubusercontent.com/u/104206949?s=40&amp;v=4" alt="@lepeshka25" size="20"
-						 height="20" width="20" data-view-component="true" className={cs.avatar}/>
-			</div>
-* */

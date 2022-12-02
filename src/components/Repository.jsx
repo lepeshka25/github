@@ -21,7 +21,7 @@ const Repository = ({cs, total}) => {
 			{
 				value.map(({full_name}) => (
 					<div className={cs.item} key={full_name}>
-						<img src="https://avatars.githubusercontent.com/u/104206949?s=16&amp;v=4" width="16" height="16"/>
+						<img src="https://avatars.githubusercontent.com/u/104206949?s=16&amp;v=4" alt='' width="16" height="16"/>
 						<pre> {full_name}</pre>
 					</div>
 				))
