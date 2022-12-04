@@ -1,6 +1,4 @@
 import React from 'react';
-import star from '../assets/star.svg';
-import {BiDownArrow} from "react-icons/bi";
 import StarDropDown from "./StarDropDown";
 
 const Card = ({cs, date , login , nameRepository , url , day, state}) => {
