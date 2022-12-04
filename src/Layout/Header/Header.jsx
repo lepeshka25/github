@@ -1,14 +1,14 @@
 import React from 'react';
-import burger from './burger.svg';
-import signOut from './signOut.svg';
-import plus from './plus.svg';
-import notification from './notification.svg';
+import burger from '../../assets/burger.svg';
+import signOut from '../../assets/signOut.svg';
+import plus from '../../assets/plus.svg';
+import notification from '../../assets/notification.svg';
 import logo from '../../assets/logo.svg'
 import cn from 'classnames'
 import {useNavigate} from "react-router-dom";
-import cs from './Header.module.scss'
 import {useMediaQuery} from "react-responsive";
-import Input from "../../components/Input/Input";
+import InputSearch from "../../components/InputSearch";
+import cs from './Header.module.scss'
 
 const list = [
 	{
@@ -90,14 +90,14 @@ const Header = ({className ,...props}) => {
 						>
 							<ul className={cs.list}>
 								<li>
-									<input type="text" placeholder={'Search GitHub'}/>
+									<InputSearch/>
 								</li>
 								{
 									listMobile.map(({title, id}) => <li key={id}>{title}</li>)
 								}
 								<li>
 									<div className={cs.avatar_container}>
-										<img src="https://avatars.githubusercontent.com/u/104206949?s=40&amp;v=4" alt="@lepeshka25" size="20"
+										<img src="https://avatars.githubusercontent.com/u/104206949?s=40&amp;v=4" alt="lepeshka25"
 												 height="20" width="20" data-view-component="true" className={cs.avatar}/>
 										<pre> lepeshka25</pre>
 									</div>
@@ -123,7 +123,7 @@ const Header = ({className ,...props}) => {
 							</div>
 
 							<div className={cs.container}>
-								<Input cs={cs} placeholder={'Search or jump to…'}/>
+								<InputSearch/>
 								<ul className={cs.list}>
 									{list.map(({title , id}) => <li key={id}>{title}</li>)}
 								</ul>
@@ -133,7 +133,7 @@ const Header = ({className ,...props}) => {
 						<div className={cs.user_container}>
 							<img className={cs.notification} src={notification} alt=""/>
 							<img className={cs.plus} src={plus} alt=""/>
-							<img src="https://avatars.githubusercontent.com/u/104206949?s=40&amp;v=4" alt="@lepeshka25" size="20"
+							<img src="https://avatars.githubusercontent.com/u/104206949?s=40&amp;v=4" alt="@lepeshka25"
 									 height="20" width="20" data-view-component="true" className={cs.avatar}/>
 						</div>
 					</div>

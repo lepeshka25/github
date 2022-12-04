@@ -1,0 +1,193 @@
+.more {
+  .userProfile {
+
+    .userProfile_header {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: 50px 1fr;
+      align-items: center;
+      gap: 0 20px;
+      grid-template-areas:
+        "avatar name"
+        "avatar login";
+
+      .avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        grid-area: avatar;
+      }
+
+      .name {
+        grid-area: name;
+        font-size: 24px;
+        color: white;
+        font-family: inherit;
+        align-items: center;
+        text-transform: uppercase;
+      }
+
+      .login {
+        grid-area: login;
+        font-size: 20px;
+        color: #8b949e;
+        font-family: inherit;
+      }
+
+    }
+
+    .followers {
+      display: flex;
+      align-items: center;
+      margin: 30px 0;
+
+      .icon {
+        margin-right: 10px;
+      }
+
+      span {
+        margin-right: 10px;
+        span {
+          margin-right: 5px;
+        }
+      }
+
+    }
+
+    .follow {
+      padding: 5px 16px;
+      text-align: center;
+      color: white;
+      background: #30363d;
+      border: 1px solid rgba(161, 161, 161, 0.2);
+      font-weight: 600;
+      width: 100%;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .bio {
+      font-weight: 500;
+      margin: 20px 0;
+    }
+
+  }
+
+  .carusel {
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+    margin-bottom: 20px;
+
+    .card {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      color: white;
+
+      .icon {
+        color: white;
+        width: 18px;
+        height: 18px;
+        margin-right: 5px;
+      }
+
+      span {
+        color: gray;
+      }
+
+    }
+  }
+
+  .repository_sort {
+
+    .sorts {
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.4);
+      margin-bottom: 20px;
+
+      input {
+        margin-bottom: 5px;
+        width: 100%;
+        border-radius: 5px;
+        padding: 5px 10px;
+        background: #161b22;
+        border: 1px solid rgba(128, 128, 128, 0.4);
+        color: white;
+      }
+
+      select {
+        padding: 5px 10px;
+        background: #161b22;
+        color: white;
+        border: 1px solid rgba(128, 128, 128, 0.4);
+        border-radius: 5px;
+        option {
+          border: none;
+        }
+      }
+
+    }
+
+  }
+
+  .repository_container {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+    .repository {
+      width: 100%;
+      padding: 10px;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+
+      .repository_header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .container_info_repository {
+          display: flex;
+          align-items: center;
+          p {
+            margin-right: 10px;
+            color: #388bfd;
+            font-size: 20px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-weight: 500;
+          }
+
+          span {
+            background: #161b22;
+            padding: 3px 6px;
+            border-radius: 10px;
+            font-size: 12px;
+          }
+        }
+      }
+
+      .repository_body {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 0;
+
+        p {
+          span {
+            width: 30px;
+            height: 30px;
+            padding-right: 20px;
+            border-radius: 100%;
+            margin-right: 10px;
+          }
+        }
+
+        small {
+          color: #8b949e;
+        }
+      }
+
+    }
+  }
+
+}

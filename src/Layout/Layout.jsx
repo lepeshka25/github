@@ -3,7 +3,7 @@ import Header from "./Header/Header";
 import Sidebar from "./Sidebar/Sidebar";
 import cs from './Layout.module.scss'
 
-const Layout = ({children}) => {
+const LayoutMain = ({children}) => {
 	return (
 		<>
 			<Header className={cs.header}/>
@@ -17,12 +17,35 @@ const Layout = ({children}) => {
 	);
 };
 
-export const WithLayout = (Component) => {
+const LayoutMore = ({children}) => {
+	return (
+		<>
+			<Header className={cs.header}/>
+			<div className={cs.wrapper2}>
+				<div className={cs.body}>
+					{children}
+				</div>
+			</div>
+		</>
+	);
+};
+
+export const WithLayoutMain = (Component) => {
 	return function withLayoutComponent (){
 		return (
-			<Layout>
+			<LayoutMain>
 				<Component/>
-			</Layout>
+			</LayoutMain>
+		)
+	}
+}
+
+export const WithLayoutMore = (Component) => {
+	return function withLayoutComponent (){
+		return (
+			<LayoutMore>
+				<Component/>
+			</LayoutMore>
 		)
 	}
 }

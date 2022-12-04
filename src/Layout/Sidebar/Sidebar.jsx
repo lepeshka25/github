@@ -1,5 +1,5 @@
 import React from 'react';
-import book from './book.svg';
+import book from '../../assets/book.svg';
 import cn from "classnames";
 import Input from "../../components/Input/Input";
 import Repository from "../../components/Repository";
@@ -20,7 +20,7 @@ const Sidebar = ({className , ...props}) => {
 							<button><img src={book} alt=""/> <pre> New</pre></button>
 						</div>
 
-						<Input placeholder={'Find a repository…'} cs={cs}/>
+						<Input disabled={true} placeholder={'Find a repository…'} cs={cs}/>
 
 						<Repository total={stateRepository} cs={cs}/>
 

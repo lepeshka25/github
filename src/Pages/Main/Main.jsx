@@ -1,5 +1,5 @@
 import React from 'react';
-import {WithLayout} from "../../Layout/Layout";
+import {WithLayoutMain} from "../../Layout/Layout";
 import Li from "../../components/Li";
 import LiList2 from "../../components/LiList2";
 import Card from "../../components/Card";
@@ -81,11 +81,6 @@ const Main = () => {
 						/>
 					))
 				}
-				{/*{*/}
-				{/*	Array(10).map((item , index) => (*/}
-				{/*		<Card key={index} cs={cs} date={cardList} like={'dsf'}/>*/}
-				{/*	))*/}
-				{/*}*/}
 			</div>
 			<div className={cs.repository_changes}>
 				<h4>Latest changes</h4>
@@ -107,4 +102,4 @@ const Main = () => {
 	);
 };
 
-export default WithLayout(Main);
+export default WithLayoutMain(Main);

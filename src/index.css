@@ -5,7 +5,7 @@
   outline: none;
 }
 
-::-webkit-scrollbar {
+html::-webkit-scrollbar , body::-webkit-scrollbar  {
   display: none;
 }
 
@@ -20,4 +20,11 @@ html, body {
 
 ul , ol {
   list-style: none;
+}
+
+:root {
+  --JavaScript: yellow;
+  --TypeScript: #388bfd;
+  --SCSS: #c6538c;
+  --red: red;
 }

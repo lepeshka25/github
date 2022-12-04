@@ -1,12 +1,13 @@
 import React from 'react';
 import {Route, Routes} from "react-router-dom";
-import Main from "./Pages/Main/Main";
+import * as Pages from './Pages';
 
 const App = () => {
 	return (
 		<>
 			<Routes>
-				<Route path={'/'} element={<Main/>}/>
+				<Route path={'/'} element={<Pages.Main/>}/>
+				<Route path={'/more/:names'} element={<Pages.More/>}/>
 			</Routes>
 		</>
 	);
