@@ -1,0 +1,175 @@
+.sideBarMore {
+
+  .user_profile {
+    width: 100%;
+    @media (max-width: 768px) {
+      display: grid;
+      grid-template-columns: 1fr 5fr;
+      grid-template-areas: "avatar name";
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    
+    @media (min-width: 768px) {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+
+    .avatar {
+      width: 100%;
+      height: auto;
+      border-radius: 100%;
+      border: 1px solid #4d5762;
+
+      @media (max-width: 768px) {
+        grid-area: avatar;
+      }
+
+    }
+
+    .container_name {
+      display: flex;
+      flex-direction: column;
+      padding: 16px 0;
+
+      @media (max-width: 768px) {
+        margin-left: 16px;
+        grid-area: name;
+      }
+
+      @media (min-width: 768px) {
+        width: 100%;
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 1.25;
+      }
+
+      p {
+        font-size: 20px;
+        line-height: 24px;
+        color: #8b949e;
+        font-weight: 300;
+      }
+
+    }
+
+  }
+
+  .container_follow {
+    display: flex;
+    flex-direction: column-reverse;
+
+    .container_bio_followers {
+      margin-top: 15px;
+      .container_bio {
+
+        @media (max-width: 768px) {
+          margin-bottom: 24px;
+        }
+
+        @media (min-width: 768px) {
+          margin-bottom: 16px;
+        }
+
+        p {
+          font-family: inherit;
+          font-size: 16px;
+          color: #c9d1d9;
+        }
+      }
+
+      .container_followers {
+        display: flex;
+        align-items: center;
+        margin-bottom: 16px;
+        margin-top: 8px;
+        .icon {
+          width: 16px;
+          height: 16px;
+          margin-right: 8px;
+        }
+
+        p {
+          display: flex;
+          align-items: center;
+          font-family: inherit;
+          color: #8b949e;
+          margin-right: 10px;
+          span {
+            color: white;
+            margin-right: 4px;
+          }
+        }
+
+      }
+    }
+
+    .btn {
+      width: 100%;
+      text-align: center;
+      color: #c9d1d9;
+      background: #21262d;
+      border: 1px solid rgba(240,246,252,0.1);
+      padding: 5px 16px;
+      line-height: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 5px;
+    }
+
+  }
+
+  .achievements {
+    border-top: 1px solid rgba(128, 128, 128, 0.2);
+    padding-top: 16px;
+    margin-top: 16px;
+    h1 {
+      font-size: 16px;
+      color: #c9d1d9;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .container_achievements {
+      img {
+        width: 64px;
+        height: 64px;
+      }
+    }
+
+    .container_btn_feedback {
+      margin-top: 8px;
+      button {
+        background: transparent;
+        font-size: 12px;
+        padding: 1.5px 8px;
+      }
+
+      button:nth-child(1){
+        color: #3FB950;
+        border: 1px solid #3FB950;
+        border-radius: 10px;
+      }
+
+      button:nth-child(2){
+        color: #58a6ff;
+        border: none;
+      }
+
+    }
+
+    .lorem {
+      margin: 8px 0;
+      color: #8b949e;
+      font-size: 14px;
+    }
+
+  }
+
+}

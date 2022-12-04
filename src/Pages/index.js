@@ -3,5 +3,5 @@ import More from "./More";
 
 export {
 	Main,
-	More
+	More,
 }

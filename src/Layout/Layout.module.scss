@@ -2,58 +2,95 @@
 
 }
 
-.wrapper {
-  display: grid;
-  min-height: 100vh;
-  
-  @media (max-width: 768px) {
-    padding: 0 16px;
-    grid-template-columns: 1fr;
-    grid-template-areas:
-    'sidebar'
-    "body";
-  }
+.containerMain {
+  background: black;
+  .wrapper {
+    display: grid;
+    min-height: 100vh;
 
-  @media (min-width: 768px) {
-    padding: 0;
-    grid-template-columns: auto minmax(260px , 1fr) 3.3fr auto;
-    grid-template-areas:
-    ". sidebar body .";
-  }
-
-  @media (min-width: 1536px) {
-    width: 1536px;
-    margin: 0 auto;
-  }
-
-  .sidebar {
-    //width: 100%;
-    grid-area: sidebar;
-  }
-
-  .body {
-    grid-area: body;
-    overflow-y: scroll;
-    //height: 100vh;
 
     @media (max-width: 768px) {
+      padding: 0 16px;
+      grid-template-columns: 1fr;
+      grid-template-areas:
+    'sidebar'
+    "body";
+    }
+
+    @media (min-width: 768px) {
       padding: 0;
+      grid-template-columns: auto minmax(260px , 1fr) 3.3fr auto;
+      grid-template-areas:
+    ". sidebar body .";
+    }
+
+    @media (min-width: 1536px) {
+      width: 1536px;
+      margin: 0 auto;
+    }
+
+    .sidebar {
+      grid-area: sidebar;
+    }
+
+    .body {
+      grid-area: body;
+
+      @media (max-width: 768px) {
+        padding: 0;
+      }
+
+      @media (min-width: 768px) {
+        padding: 0 24px;
+      }
+
+      @media (min-width: 1012px) {
+        padding: 0 32px;
+      }
+
+    }
+  }
+}
+
+.containerMore {
+  @media (max-width: 542px) {
+    background: #161b22 !important;
+  }
+  @media (min-width: 542px) {
+    background: #0d1117 !important;
+  }
+  .wrapper2 {
+    width: 100%;
+    display: grid;
+
+    @media (max-width: 768px) {
+      grid-template-areas: "sideBarMore" "body";
+      grid-template-columns: 100% 100%;
+      padding: 0 16px;
     }
 
     @media (min-width: 768px) {
       padding: 0 24px;
+      grid-template-areas: ". sideBarMore body .";
+      grid-template-columns: auto 256px 1fr auto;
     }
 
     @media (min-width: 1012px) {
       padding: 0 32px;
+      grid-template-columns: auto 296px 1fr auto;
     }
-    
-  }
-}
 
-.wrapper2 {
-  width: 100%;
-  .body {
-    padding: 0 16px;
+    @media (min-width: 1216px) {
+      width: 1216px;
+      margin: 0 auto;
+    }
+
+    .sideBarMore {
+      grid-area: sideBarMore;
+    }
+
+    .body {
+      grid-area: body;
+    }
   }
 }

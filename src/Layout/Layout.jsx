@@ -1,11 +1,12 @@
 import React from 'react';
 import Header from "./Header/Header";
 import Sidebar from "./Sidebar/Sidebar";
-import cs from './Layout.module.scss'
+import SideBarMore from "./SideBarMore";
+import cs from './Layout.module.scss';
 
 const LayoutMain = ({children}) => {
 	return (
-		<>
+		<div className={cs.containerMain}>
 			<Header className={cs.header}/>
 			<div className={cs.wrapper}>
 				<Sidebar className={cs.sidebar}/>
@@ -13,20 +14,21 @@ const LayoutMain = ({children}) => {
 					{children}
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };
 
 const LayoutMore = ({children}) => {
 	return (
-		<>
+		<div className={cs.containerMore}>
 			<Header className={cs.header}/>
 			<div className={cs.wrapper2}>
+				<SideBarMore className={cs.sideBarMore}/>
 				<div className={cs.body}>
 					{children}
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };
 
