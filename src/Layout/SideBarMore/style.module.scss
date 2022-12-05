@@ -1,4 +1,7 @@
 .sideBarMore {
+  @media (min-width: 768px) {
+    margin-top: 30px;
+  }
 
   .user_profile {
     width: 100%;
