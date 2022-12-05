@@ -22,7 +22,7 @@ const InputSearch = () => {
 				onChange={(e) => onChange(e.target.value)}
 				cs={cs}
 				type="text"
-				placeholder={'Search GitHub'}
+				placeholder={'Modal GitHub'}
 			/>
 			<div
 				onMouseEnter={() => setFocus(true)}

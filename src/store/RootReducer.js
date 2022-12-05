@@ -1,6 +1,8 @@
 import {combineReducers} from "redux";
-import {SearchReducer} from "./Search/search-reducer";
+import {ModalReducer} from "./Modal/modal-reducer";
+import {DataReducer} from "./Data/data-reducer";
 
 export const RootReducer = combineReducers({
-	search: SearchReducer
+	modal: ModalReducer,
+	data: DataReducer
 })

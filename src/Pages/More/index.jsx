@@ -1,39 +1,58 @@
 import React from 'react';
 import {WithLayoutMore} from "../../Layout/Layout";
+import star from '../../assets/star.svg';
 import Navigate from "./Navigate";
 import StarDropDown from "../../components/StarDropDown";
 import axios from "axios";
 import {useParams} from "react-router-dom";
 import {processChanges} from "../../hook/useDebounce";
+import {useDispatch, useSelector} from "react-redux";
+import {addDataAction} from "../../store/Data/data-actions";
 import cs from './More.module.scss';
+import {store} from "../../store";
 
 const More = () => {
 	const {names} = useParams()
+	const dispatch = useDispatch()
+	const array = useSelector(state => state.data)
 	const [data , setData] = React.useState([])
 	const [newData , setNewData] = React.useState([])
-	const [input , setInput] = React.useState(null)
 
 	React.useEffect(() => {
 		axios.get(`https://api.github.com/users/${names}/repos`)
-			.then(res => setData(res.data))
+			.then(res => dispatch(addDataAction(res.data)))
+		// eslint-disable-next-line
 	}, [names])
 
+	store.subscribe(() => {
+		const {data} = store.getState(state => state)
+		setData(data)
+		searchInput(null)
+	})
+
 	React.useEffect(() => {
-		processChanges(data , setNewData, 'includes', input !== null ? input : 'all')
-	}, [input, data])
+		searchInput(null)
+		// eslint-disable-next-line
+	}, [data])
+
+	function searchInput(value){
+		processChanges(data , setNewData, 'includes', value !== null ? value : 'all')
+	}
 
 	const {value} = React.useMemo(() => ({
 		value: newData
 	}), [newData])
 
+	// console.log('2022-11-12' , '2022-01-12')
+
 	return (
 		<div className={cs.more}>
-			<Navigate setInput={setInput}/>
+			<Navigate searchInput={searchInput}/>
 
 			<div className={cs.container_cards}>
 
 				{
-					value.map(({name, language , updated_at, visibility, id}) => (
+					value.map(({name, language , updated_at, visibility, id, stargazers_count}) => (
 						<div key={id} className={cs.card}>
 
 							<div className={cs.info_repository}>
@@ -57,7 +76,17 @@ const More = () => {
 									</span>
 									{language}
 								</p>
-								<span className={cs.update}>{updated_at}</span>
+
+								{
+									stargazers_count >= 1 && (
+										<div className={cs.star_container}>
+											<img src={star} alt=""/>
+											<p>{stargazers_count}</p>
+										</div>
+									)
+								}
+
+								<span className={cs.update}>{updated_at.slice(0, 10)}</span>
 							</div>
 
 						</div>
@@ -75,3 +104,5 @@ export default WithLayoutMore(More);
 //name
 //language
 //updated_at
+//stargazers_count
+//visibility

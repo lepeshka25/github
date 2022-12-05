@@ -17,7 +17,7 @@ function saveInput(value, hook, rule, input){
 				.then(res => hook(res.data))
 		}else if(rule === 'includes'){
 			const data = value.filter((item) => input !== 'all' ? item.name.includes(input) : item)
-			hook(data)
+			hook(data.reverse())
 		}
 	}
 }

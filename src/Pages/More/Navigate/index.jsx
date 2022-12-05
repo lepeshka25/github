@@ -1,8 +1,16 @@
 import React from 'react';
 import {listCarusel} from "../../../utils";
+import {useDispatch} from "react-redux";
+import {toggleAction} from "../../../store/Modal/modal-action";
 import cs from './Navigate.module.scss';
 
-const Navigate = ({setInput}) => {
+const Navigate = ({searchInput}) => {
+	const dispatch = useDispatch()
+
+	function toggleModal(){
+		dispatch(toggleAction(true))
+	}
+
 	return (
 		<div className={cs.navigate}>
 
@@ -20,13 +28,13 @@ const Navigate = ({setInput}) => {
 
 			<div className={cs.search_create_sort_repository}>
 				<input
-					onChange={e => setInput(e.target.value === '' ? null : e.target.value)}
+					onChange={e => searchInput(e.target.value === '' ? null : e.target.value)}
 					type="text"
 					placeholder={'Find a repository'}
 				/>
 				<button>Type</button>
 				<button>Language</button>
-				<button>Sort</button>
+				<button onClick={toggleModal}>Sort</button>
 			</div>
 
 		</div>

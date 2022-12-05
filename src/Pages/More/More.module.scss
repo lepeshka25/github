@@ -70,6 +70,22 @@
 
         }
 
+        .star_container {
+          display: flex;
+          align-items: center;
+          margin-right: 10px;
+          img {
+            width: 16px;
+            height: 16px;
+            margin-right: 4px;
+          }
+
+          p {
+            color: #8b949e;
+          }
+
+        }
+
         .update {
           white-space: nowrap;
           font-size: 12px;
