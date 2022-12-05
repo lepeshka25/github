@@ -2,13 +2,13 @@ import React from 'react';
 import {WithLayoutMore} from "../../Layout/Layout";
 import star from '../../assets/star.svg';
 import Navigate from "./Navigate";
-import StarDropDown from "../../components/StarDropDown";
 import axios from "axios";
 import {useParams} from "react-router-dom";
 import {processChanges} from "../../hook/useDebounce";
 import {useDispatch} from "react-redux";
 import {addDataAction} from "../../store/Data/data-actions";
 import {store} from "../../store";
+import {BiDownArrow} from "react-icons/bi";
 import cs from './More.module.scss';
 
 const More = () => {
@@ -60,7 +60,10 @@ const More = () => {
 							</div>
 
 							<div className={cs.btn_container}>
-								<StarDropDown/>
+								<div className={cs.dropDown}>
+									<span><img src={star} alt=""/> <pre>Star</pre></span>
+									<BiDownArrow className={cs.icon}/>
+								</div>
 							</div>
 
 							<div className={cs.update_lang_repository}>
@@ -91,6 +94,10 @@ const More = () => {
 						</div>
 					))
 				}
+
+			</div>
+
+			<div className={cs.pagination_container}>
 
 			</div>
 

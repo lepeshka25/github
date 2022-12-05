@@ -1,66 +1,11 @@
 import React from 'react';
 import {WithLayoutMain} from "../../Layout/Layout";
-import Li from "../../components/Li";
-import LiList2 from "../../components/LiList2";
-import Card from "../../components/Card";
+import {cardList, list2Li, listLi} from "../../utils";
+import star from "../../assets/star.svg";
+import {BiDownArrow} from "react-icons/bi";
 import cs from './Main.module.scss';
-
-const listLi = [
-	{
-		id: 1,
-		date: '9 hours ago',
-		lorem: 'Audit log improvements for Dependabot alerts'
-	},
-	{
-		id: 2,
-		date: '12 hours ago',
-		lorem: 'New and improved Enterprise Reports now Generally Available'
-	},
-	{
-		id: 3,
-		date: '2 days ago',
-		lorem: 'Calendar-based versioning for the REST API'
-	},
-	{
-		id: 4,
-		date: '2 days ago',
-		lorem: 'CodeQL code scanning launches Kotlin analysis support (beta)'
-	},
-]
-
-const list2Li = [
-	{
-		id: 1,
-		title: 'kumarabhirup/dockerized',
-		lorem: 'Boilerplate to start with Docker setup (Next.js included)',
-		lang: 'JavaScript',
-		starTotal: '105',
-	},
-	{
-		id: 2,
-		title: 'vercel/preview-mode-demo',
-		lorem: 'This demo showcases Next.js\' next-gen Static Site Generation (SSG) support.',
-		lang: 'TypeScript',
-		starTotal: '80',
-	},
-	{
-		id: 3,
-		title: 'jagaapple/next-secure-headers',
-		lorem: 'Sets secure response headers for Next.js.',
-		lang: 'TypeScript',
-		starTotal: '280',
-	},
-]
-
-const cardList = {
-	id: 1,
-	login: 'AlariCode',
-	state: 'created a repository',
-	nameRepository: 'PurpleSchool/knowledge-base',
-	day: '6 days ago',
-	date: 'Updated Nov 25',
-	url: 'https://avatars.githubusercontent.com/u/2528600?s=64&v=4',
-}
+import circle from "../../assets/circle.svg";
+import cn from "classnames";
 
 const Main = () => {
 
@@ -69,30 +14,67 @@ const Main = () => {
 			<div className={cs.main_container}>
 				{
 					Array(10).fill(cardList).map(({login , state, nameRepository, day, date , url}, i) => (
-						<Card
-							key={i}
-							cs={cs}
-							login={login}
-							state={state}
-							nameRepository={nameRepository}
-							day={day}
-							date={date}
-							url={url}
-						/>
+						<div key={i} className={cs.card}>
+							<img src={url} width="32"
+									 height="32" alt="@AlariCode"/>
+							<div className={cs.card_body}>
+								<div className={cs.info}>
+									<p>{login}</p>
+									<pre> {state} </pre>
+									<p>{nameRepository}</p>
+									<span>{day}</span>
+								</div>
+								<div className={cs.container}>
+									<h2>{nameRepository}</h2>
+
+									<div className={cs.dropDown}>
+										<span><img src={star} alt=""/> <pre>Star</pre></span>
+										<BiDownArrow className={cs.icon}/>
+									</div>
+
+									<span className={cs.subTitle}>{date}</span>
+								</div>
+							</div>
+						</div>
 					))
 				}
 			</div>
 			<div className={cs.repository_changes}>
 				<h4>Latest changes</h4>
 				<ul className={cs.list}>
-					{listLi.map(({date, id , lorem}) => <Li key={id} date={date} lorem={lorem}/>)}
+					{listLi.map(({date, id , lorem}) => (
+						<li key={id}>
+							<img src={circle} alt=""/>
+							<p>{date}</p>
+							<p>{lorem}</p>
+						</li>
+					))}
 				</ul>
 				<h4>Explore repositories</h4>
 				<ul className={cs.list2}>
 					{
 						list2Li.map(({lorem , lang, starTotal , title, id}) => (
 							<li key={id}>
-								<LiList2 cs={cs} lorem={lorem} lang={lang} starTotal={starTotal} title={title}/>
+								<div>
+									<p className={cs.title}>{title}</p>
+									<p className={cs.lorem}>{lorem}</p>
+									<div className={cs.line}>
+										<p>
+											<span
+												className={cn(cs.span, {
+													[cs.typscript]: lang === 'TypeScript',
+													[cs.javascript]: lang === 'JavaScript'
+												})}
+											>
+											</span>
+											<span style={{paddingLeft: '10px'}}> {lang}</span>
+										</p>
+										<p>
+											<img src={star} alt=""/>
+											<span  style={{paddingLeft: '10px'}}> {starTotal}</span>
+										</p>
+									</div>
+								</div>
 							</li>
 						))
 					}

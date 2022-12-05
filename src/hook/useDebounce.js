@@ -16,7 +16,7 @@ function saveInput(value, hook, rule, input){
 			axios.get(`https://api.github.com/search/users?q=${value}`)
 				.then(res => hook(res.data))
 		}else if(rule === 'includes'){
-			const data = value.filter((item) => input !== 'all' ? item.name.includes(input) : item)
+			const data = value.filter((item) => input !== 'all' ? item.name.toLowerCase().includes(input.toLowerCase()) : item)
 			hook(data.reverse())
 		}
 	}

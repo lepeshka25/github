@@ -80,7 +80,40 @@
             grid-area: h2;
           }
 
-          //
+          .dropDown {
+            grid-area: button;
+            width: 100px;
+            height: 32px;
+            justify-self: flex-end;
+            display: flex;
+            align-items: center;
+            background: #21262d;
+            justify-content: space-around;
+            padding: 3px 5px;
+            border-radius: 5px;
+
+            span {
+              display: flex;
+              align-items: center;
+              padding-right: 5px;
+
+              img {
+                width: 14px;
+                height: 14px;
+                margin-right: 5px;
+              }
+
+              pre {
+                font-family: inherit;
+                font-size: 12px;
+              }
+            }
+
+            .icon {
+
+            }
+
+          }
 
           .subTitle {
             color: #8b949e;
@@ -215,4 +248,5 @@
     }
 
   }
+
 }
