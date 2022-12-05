@@ -8,8 +8,8 @@ import {useParams} from "react-router-dom";
 import {processChanges} from "../../hook/useDebounce";
 import {useDispatch} from "react-redux";
 import {addDataAction} from "../../store/Data/data-actions";
-import cs from './More.module.scss';
 import {store} from "../../store";
+import cs from './More.module.scss';
 
 const More = () => {
 	const {names} = useParams()
