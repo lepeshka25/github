@@ -4,29 +4,36 @@ import Navigate from "./Navigate";
 import StarDropDown from "../../components/StarDropDown";
 import axios from "axios";
 import {useParams} from "react-router-dom";
+import {processChanges} from "../../hook/useDebounce";
 import cs from './More.module.scss';
 
 const More = () => {
 	const {names} = useParams()
 	const [data , setData] = React.useState([])
+	const [newData , setNewData] = React.useState([])
+	const [input , setInput] = React.useState(null)
 
 	React.useEffect(() => {
 		axios.get(`https://api.github.com/users/${names}/repos`)
 			.then(res => setData(res.data))
 	}, [names])
 
-	const value = React.useMemo(() => ({
-		data
-	}), [data])
+	React.useEffect(() => {
+		processChanges(data , setNewData, 'includes', input !== null ? input : 'all')
+	}, [input, data])
+
+	const {value} = React.useMemo(() => ({
+		value: newData
+	}), [newData])
 
 	return (
 		<div className={cs.more}>
-			<Navigate/>
+			<Navigate setInput={setInput}/>
 
 			<div className={cs.container_cards}>
 
 				{
-					value?.data.map(({name, language , updated_at, visibility, id}) => (
+					value.map(({name, language , updated_at, visibility, id}) => (
 						<div key={id} className={cs.card}>
 
 							<div className={cs.info_repository}>

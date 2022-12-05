@@ -2,7 +2,7 @@ import React from 'react';
 import {listCarusel} from "../../../utils";
 import cs from './Navigate.module.scss';
 
-const Navigate = () => {
+const Navigate = ({setInput}) => {
 	return (
 		<div className={cs.navigate}>
 
@@ -19,7 +19,11 @@ const Navigate = () => {
 			</div>
 
 			<div className={cs.search_create_sort_repository}>
-				<input type="text" placeholder={'Find a repository'}/>
+				<input
+					onChange={e => setInput(e.target.value === '' ? null : e.target.value)}
+					type="text"
+					placeholder={'Find a repository'}
+				/>
 				<button>Type</button>
 				<button>Language</button>
 				<button>Sort</button>
