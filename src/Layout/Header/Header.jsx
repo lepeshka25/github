@@ -119,7 +119,7 @@ const Header = ({className ,...props}) => {
 					<div className={cs.laptop}>
 						<div className={cs.container_laptop}>
 							<div className={cs.logo}>
-								<img src={logo} alt=""/>
+								<img onClick={() => Navigate('/')} src={logo} alt=""/>
 							</div>
 
 							<div className={cs.container}>
