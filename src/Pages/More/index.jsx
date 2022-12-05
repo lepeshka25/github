@@ -10,6 +10,7 @@ import {addDataAction} from "../../store/Data/data-actions";
 import {store} from "../../store";
 import {BiDownArrow} from "react-icons/bi";
 import cs from './More.module.scss';
+import usePagination from "../../hook/usePagination";
 
 const More = () => {
 	const {names} = useParams()
@@ -42,7 +43,18 @@ const More = () => {
 		value: newData
 	}), [newData])
 
-	// console.log('2022-11-12' , '2022-01-12')
+	const {
+		firstContentIndex,
+		lastContentIndex,
+		nextPage,
+		prevPage,
+		page,
+		setPage,
+		totalPages,
+	} = usePagination({
+		contentPerPage: 8,
+		count: value.length,
+	});
 
 	return (
 		<div className={cs.more}>
@@ -51,8 +63,10 @@ const More = () => {
 			<div className={cs.container_cards}>
 
 				{
-					value.map(({name, language , updated_at, visibility, id, stargazers_count}) => (
-						<div key={id} className={cs.card}>
+					value
+						.slice(firstContentIndex, lastContentIndex)
+						.map(({name, language , updated_at, visibility, id, stargazers_count}) => (
+									<div key={id} className={cs.card}>
 
 							<div className={cs.info_repository}>
 								<p className={cs.name_repository}>{name}</p>
@@ -92,13 +106,30 @@ const More = () => {
 							</div>
 
 						</div>
-					))
+						))
 				}
 
 			</div>
 
 			<div className={cs.pagination_container}>
-
+				<p className={cs.text}>
+					{page}/{totalPages}
+				</p>
+				<button onClick={prevPage} className={cs.page}>
+					&larr;
+				</button>
+				{[...Array(totalPages).keys()].map((item) => (
+					<button
+						onClick={() => setPage(item + 1)}
+						key={item}
+						className={`${cs.page} ${page === item + 1 ? cs.active : null}`}
+					>
+						{item + 1}
+					</button>
+				))}
+				<button onClick={nextPage} className={cs.page}>
+					&rarr;
+				</button>
 			</div>
 
 		</div>
@@ -107,8 +138,4 @@ const More = () => {
 
 export default WithLayoutMore(More);
 
-//name
-//language
-//updated_at
-//stargazers_count
-//visibility
+//сделать закрытие modal послсе нажатие на btn

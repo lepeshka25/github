@@ -135,6 +135,30 @@
   }
 
   .pagination_container {
+    padding: 24px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .text {
+      margin-right: 20px;
+      color: #8b949e;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .page {
+      padding: 5px 10px;
+      border-radius: 5px;
+      background: #30363d;
+      color: #8b949e;
+      border: 1px solid #4d5762;
+      margin: 0 4px;
+      cursor: pointer;
+
+      &.active {
+        color: white;
+      }
+    }
 
   }
 
