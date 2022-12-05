@@ -6,7 +6,7 @@ import StarDropDown from "../../components/StarDropDown";
 import axios from "axios";
 import {useParams} from "react-router-dom";
 import {processChanges} from "../../hook/useDebounce";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {addDataAction} from "../../store/Data/data-actions";
 import cs from './More.module.scss';
 import {store} from "../../store";
@@ -14,7 +14,6 @@ import {store} from "../../store";
 const More = () => {
 	const {names} = useParams()
 	const dispatch = useDispatch()
-	const array = useSelector(state => state.data)
 	const [data , setData] = React.useState([])
 	const [newData , setNewData] = React.useState([])
 
