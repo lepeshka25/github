@@ -1,9 +1,85 @@
 .more {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 
   @media (min-width: 768px) {
     padding: 0 16px;
     margin-top: 30px;
   }
+
+  .container_cards {
+    width: 100%;
+
+    .card {
+      padding: 24px 0;
+      display: grid;
+      align-items: center;
+      grid-template-areas: "info_repository button" "update_lang_repository update_lang_repository";
+      gap: 10px 0;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+
+      .info_repository {
+        display: flex;
+        align-items: center;
+        grid-area: info_repository;
+
+        .name_repository {
+          margin-right: 10px;
+          color: #58a6ff;
+          font-size: 20px;
+          font-weight: 500;
+          text-transform: lowercase;
+        }
+
+        .public {
+          padding: 0 7px;
+          font-size: 12px;
+          color: #8b949e;
+          border: 1px solid #8b949e;
+          border-radius: 10px;
+          font-family: inherit;
+          font-weight: 500;
+        }
+
+      }
+
+      .btn_container {
+        justify-self: flex-end;
+        grid-area: button;
+      }
+
+      .update_lang_repository {
+        display: flex;
+        align-items: center;
+        grid-area: update_lang_repository;
+
+        .lang {
+          display: flex;
+          align-items: center;
+          font-size: 12px;
+          color: #8b949e;
+          margin-right: 20px;
+
+          span {
+            width: 20px;
+            height: 20px;
+            border-radius: 100%;
+            background: white;
+            margin-right: 10px;
+          }
+
+        }
+
+        .update {
+          white-space: nowrap;
+          font-size: 12px;
+          color: #8b949e;
+        }
+
+      }
+
+    }
+
+  }
+
 }
