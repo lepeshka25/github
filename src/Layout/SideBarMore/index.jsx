@@ -10,12 +10,12 @@ const SideBarMore = ({className , ...props}) => {
 			<div className={cs.user_profile}>
 				<img
 					className={cs.avatar}
-					src='https://avatars.githubusercontent.com/u/74928310?v=4'
+					src="https://avatars.githubusercontent.com/u/104206949?v=4"
 					alt=""
 				/>
 				<div className={cs.container_name}>
-					<h1>Almaz Eshimbekov</h1>
-					<p>almazesh</p>
+					<h1>lepeshka25</h1>
+					<p>Ruslan</p>
 				</div>
 			</div>
 
